@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package math;
+
+message AddRequest {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message AddResponse {
+  int32 sum = 1;
+}
+
+message FibRequest {
+  int32 input = 1;
+}
+
+message FibResponse {
+  int32 output = 1;
+}
+
+service Greeter {
+  rpc Add (AddRequest) returns (AddResponse) {}
+  rpc Fib (FibRequest) returns (stream FibResponse) {}
+}
